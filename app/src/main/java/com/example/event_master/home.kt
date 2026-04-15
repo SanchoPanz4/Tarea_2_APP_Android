@@ -2,6 +2,7 @@ package com.example.event_master
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -14,5 +15,7 @@ fun HomeScreen(navController: NavHostController)
         Greeting(
             name = "Android",
             modifier = Modifier.padding(innerPadding)
-        )}
+        )
+        Button(onClick = {navController.navigate(Detalle)}) { }
+    }
 }
