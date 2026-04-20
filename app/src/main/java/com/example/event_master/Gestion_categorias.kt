@@ -1,7 +1,6 @@
 package com.example.event_master
 
 import androidx.compose.ui.graphics.Color
-import java.util.Date
 
 class categorias {
     private val categorias = mutableListOf<String>()
@@ -25,15 +24,16 @@ class categorias {
         return color[index];
     }
 
+
 }
 
 class eventos{
     private val nombres = mutableListOf<String>()
     private val categoria = mutableListOf<String>()
-    private  val fecha = mutableListOf<Date>()
+    private  val fecha = mutableListOf<String>()
     private val detalles = mutableListOf<String>()
 
-    fun agregarEvento(nombreEvento : String, categoriaEvento : String, fechaEvento : Date, detallesEvento : String) : Unit{
+    fun agregarEvento(nombreEvento : String, categoriaEvento : String, fechaEvento : String, detallesEvento : String) : Unit{
         nombres.add(nombreEvento);
         categoria.add(categoriaEvento);
         fecha.add(fechaEvento);
@@ -48,7 +48,7 @@ class eventos{
         return categoria[index];
     }
 
-    fun getFechaByIndex(index : Int) : Date{
+    fun getFechaByIndex(index : Int) : String{
         return fecha[index];
     }
 
@@ -65,8 +65,11 @@ class eventos{
         val index : Int = nombres.indexOf(target);
         return detalles[index];
     }
-    fun buscarFechaByNombre(target : String) : Date {
+    fun buscarFechaByNombre(target : String) : String {
         val index : Int = nombres.indexOf(target);
         return fecha[index];
     }
 }
+
+val listaDeCategorias = categorias()
+val listaDeEventos = eventos()
