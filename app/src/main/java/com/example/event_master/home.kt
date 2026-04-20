@@ -16,6 +16,9 @@ fun HomeScreen(navController: NavHostController)
             name = "Android",
             modifier = Modifier.padding(innerPadding)
         )
+
+
+
         Button(onClick = {navController.navigate(Detalle)}) { }
     }
 }

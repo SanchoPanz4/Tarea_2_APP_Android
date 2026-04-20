@@ -21,7 +21,7 @@ object Registro
 
 @Composable
 fun Navigation() {
-    val navController = rememberNavController()
+    val navController = rememberNavController() //controlador principal del navegator, a traves de el se pasan estados y cambios entre las distintas pestañas
 
     NavHost(navController = navController, startDestination = Home)
     {
