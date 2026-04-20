@@ -12,15 +12,15 @@ class categorias {
         color.add(colorCategoria);
     }
 
-    fun nombreCategorias(index : Int) : String{
+    fun getNombrebyindex(index : Int) : String{
         return categorias[index];
     }
 
-    fun colorCategorias(index : Int) : Color{
+    fun getColorByIndex(index : Int) : Color{
         return color[index];
     }
 
-    fun buscarColorCategorias(target : String) : Color{
+    fun buscarColorByCategorias(target : String) : Color{
         val index : Int = categorias.indexOf(target);
         return color[index];
     }
@@ -40,5 +40,33 @@ class eventos{
         detalles.add(detallesEvento);
     }
 
+    fun getNombresByIndex(index : Int) : String{
+    return nombres[index];
+    }
 
+    fun getCategoriaByIndex(index : Int) : String{
+        return categoria[index];
+    }
+
+    fun getFechaByIndex(index : Int) : Date{
+        return fecha[index];
+    }
+
+    fun getDetallesByIndex(index : Int) : String{
+        return detalles[index];
+    }
+
+    fun buscarCategoriaByNombre(target : String) : String {
+        val index : Int = nombres.indexOf(target);
+        return categoria[index];
+    }
+
+    fun buscarDetallesByNombre(target : String) : String {
+        val index : Int = nombres.indexOf(target);
+        return detalles[index];
+    }
+    fun buscarFechaByNombre(target : String) : Date {
+        val index : Int = nombres.indexOf(target);
+        return fecha[index];
+    }
 }
