@@ -40,7 +40,7 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
     { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
             LazyVerticalGrid(
-                columns = GridCells.Fixed(count = 2),
+                columns = GridCells.Fixed(count = 1),
                 modifier = Modifier.padding(vertical = 10.dp, horizontal = 10.dp),
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
