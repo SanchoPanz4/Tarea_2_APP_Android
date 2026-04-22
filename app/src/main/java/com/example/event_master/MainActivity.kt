@@ -26,32 +26,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Event_MasterTheme {
-        Greeting("Android")
-    }
-}
-
-@Composable
-fun CustomCard(){
-    Card(
-        modifier = Modifier
-            .height(100.dp)
-            .fillMaxWidth(1f),
-    ){
-
-        Text(text = "Probando las cards")
-    }
-}

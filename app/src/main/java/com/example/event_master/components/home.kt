@@ -20,7 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.event_master.CustomCard
+
 
 @Composable
 fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostController) {
