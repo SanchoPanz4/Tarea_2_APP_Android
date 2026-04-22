@@ -1,4 +1,4 @@
-package com.example.event_master
+package com.example.event_master.components
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
@@ -22,17 +22,22 @@ object Registro
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
-
+    val formViewModel = CategoriaViewMdole()
     NavHost(navController = navController, startDestination = Home)
     {
         composable<Home>
         {
-            HomeScreen(navController = navController)
+            HomeScreen(formViewModel = formViewModel,navController = navController)
         }
         composable<Detalle>
         {backStackEntry ->
             val args = backStackEntry.toRoute<Detalle>()
             DetalleScreen(navController = navController)
+        }
+        composable<Gestion>
+        {backStackEntry->
+            val args = backStackEntry.toRoute<Gestion>()
+            GestionCategoriaScreen(formViewMdole = formViewModel, navController = navController)
         }
     }
 }
