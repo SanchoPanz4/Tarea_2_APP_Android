@@ -24,6 +24,9 @@ class categorias {
         return color[index];
     }
 
+    fun _size() : Int{
+        return categorias.size
+    }
 
 }
 
@@ -73,3 +76,13 @@ class eventos{
 
 val listaDeCategorias = categorias()
 val listaDeEventos = eventos()
+
+fun testVars(){
+    listaDeCategorias.agregarCategoria("deportes", Color.Red);
+    listaDeCategorias.agregarCategoria("musica",Color.Blue);
+    listaDeCategorias.agregarCategoria("otros",Color.Green);
+
+    listaDeEventos.agregarEvento("torneo futbol",listaDeCategorias.getNombrebyindex(0), "2012-01-21","lorem ipsum....")
+    listaDeEventos.agregarEvento("REC concepcion",listaDeCategorias.getNombrebyindex(1), "2012-01-21","lorem ipsum....")
+    listaDeEventos.agregarEvento("torneo cartitas",listaDeCategorias.getNombrebyindex(2), "2012-01-21","lorem ipsum....")
+}

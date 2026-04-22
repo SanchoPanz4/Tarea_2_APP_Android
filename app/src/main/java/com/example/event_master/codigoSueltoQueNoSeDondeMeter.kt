@@ -1,19 +1,28 @@
 package com.example.event_master
 
 
+import android.widget.Space
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,44 +33,58 @@ import com.example.event_master.listaDeEventos
 import java.util.Date
 
 
+@Composable
+fun agregarCategoria(navController: NavHostController) {
 
-fun testVars(){
-    listaDeCategorias.agregarCategoria("deportes", Color.Red);
-    listaDeCategorias.agregarCategoria("musica",Color.Blue);
-    listaDeCategorias.agregarCategoria("otros",Color.Green);
+    var nombre by remember { mutableStateOf(value = "") }
+    var color by remember { mutableStateOf(value = "") }
 
-    listaDeEventos.agregarEvento("torneo regional",listaDeCategorias.getNombrebyindex(0), "2012-01-21","lorem ipsum....")
-    listaDeEventos.agregarEvento("REC concepcion",listaDeCategorias.getNombrebyindex(1), "2012-01-21","lorem ipsum....")
-    listaDeEventos.agregarEvento("torneo cartitas",listaDeCategorias.getNombrebyindex(2), "2012-01-21","lorem ipsum....")
+    Column(Modifier.padding(16.dp)){
+        Text("agregar nueva categoria") //rehacer tirando los strings a string.xml
+        Spacer(Modifier.height(16.dp))
+        OutlinedTextField(value = nombre, onValueChange = {nombre = it}, label = { Text("nombre de la categoria") }, isError = nombre.isBlank())
+        Spacer(Modifier.height(24.dp))
+        OutlinedTextField(value = color, onValueChange = {color = it}, label = { Text("seleccionar color") }, isError = color.length != 6 && color.isBlank())
 
+        Spacer(Modifier.height(36.dp))
 
+        Button(
+            onClick = {
+                    if(nombre.isNotBlank() && color.isNotBlank() && color.length == 6){
+                        listaDeCategorias.agregarCategoria(nombre, Color.Red);
+                        //cambio de navegacion aqui
+                    }
+        }){Text("crear")}
+
+    }
 }
 
-
-
 @Composable
-fun AgregarCategoria(navController: NavHostController){
-    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Row(modifier = Modifier
-                .fillMaxSize()
-                .padding(1.dp)
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 30.dp)) {
-                item(span = {
-                    // LazyGridItemSpanScope:
-                    // maxLineSpan
-                    GridItemSpan(maxLineSpan)
-                }) {
-                    Text("1")
-                }
-                // ...
+fun agregarEvento(navController: NavHostController){
+    var nombre by remember { mutableStateOf(value = "") }
+    var categoria by remember { mutableStateOf(value = "") }
+    var fecha by remember { mutableStateOf(value = "") }
+    var detalle by remember { mutableStateOf(value = "") }
+
+    Text("agregue los detalles de su evento")
+    Spacer(Modifier.height(16.dp))
+    OutlinedTextField(value = nombre, onValueChange = {nombre = it}, label = { Text("nombre del evento") }, isError = nombre.isBlank())
+    Spacer(Modifier.height(10.dp))
+    OutlinedTextField(value = categoria, onValueChange = {categoria = it}, label = { Text("ingrese la categoria del evento") }, isError = categoria.isBlank())
+    Spacer(Modifier.height(10.dp))
+    OutlinedTextField(value = fecha, onValueChange = {fecha = it}, label = { Text("ingrese la categoria del evento") }, isError = fecha.isBlank())
+    Spacer(Modifier.height(10.dp))
+    OutlinedTextField(value = detalle, onValueChange = {detalle = it}, label = { Text("ingrese la categoria del evento") }, isError = detalle.isBlank())
+
+    Spacer(Modifier.height(40.dp))
+
+    Button(
+        onClick = {
+            if(nombre.isNotBlank() && categoria.isNotBlank() && fecha.isNotBlank() && detalle.isNotBlank()){
+                listaDeEventos.agregarEvento(nombre,categoria,fecha,detalle)
             }
-        }
+    }){Text(("crear evento"))}
 
 
-        Button(onClick = {navController.navigate(Detalle)}) { }
-    }
+
 }
