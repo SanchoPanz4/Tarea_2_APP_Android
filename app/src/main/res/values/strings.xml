@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">ir a la lista de eventos</string>
+    <string name="app_name">Event_master</string>
     <string name="tipo_label">crear evento</string>>
     <string name="descripcion_label">Descripcion</string>
     <string name="nombre_label">Nombre</string>
     <string name="agregarEvento_label">agregar evento </string>
+    <string name="iralista_label">ir a la lista de evento</string>
 </resources>
