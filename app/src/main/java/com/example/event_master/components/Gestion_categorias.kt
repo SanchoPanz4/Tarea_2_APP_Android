@@ -11,9 +11,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -41,18 +38,11 @@ fun GestionCategoriaScreen(formViewMdole: CategoriaViewMdole,navController: NavH
                 isError = formViewMdole.tipo.isBlank() || formViewMdole.tipo.length <5
             )
             Spacer(modifier = Modifier.size(22.dp))
-            TextField(
-                value = formViewMdole.descripcion,
-                onValueChange = {formViewMdole.descripcion = it},
-                label = { Text((stringResource(R.string.descripcion_label))) },
-                isError = formViewMdole.descripcion.isBlank() || formViewMdole.descripcion.length <5
-            )
-            Spacer(modifier = Modifier.size(22.dp))
             Button(onClick = {
                 formViewMdole.addActividad()
                 },
                 ) {
-                Text(stringResource(R.string.a))
+                Text(stringResource(R.string.agregarActividad_label))
             }
             Button(onClick = {navController.navigate(Home)},
             ) {
