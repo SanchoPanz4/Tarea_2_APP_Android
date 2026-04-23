@@ -64,12 +64,12 @@ fun RegistroEventoScreen(formViewMdole: CategoriaViewMdole,navController: NavHos
             Spacer(modifier = Modifier.size(22.dp))
 
             val num = 0
-            val id_evento = while(listActivad[num])
+            //val id_evento = while(listActivad[num])
 
 
 
             Button(onClick = {
-                formViewMdole.addEvento(idEvento = )
+                //formViewMdole.addEvento(idEvento = )
             },
             ) {
                 Text(stringResource(R.string.agregarActividad_label))

@@ -20,9 +20,9 @@ class CategoriaViewMdole: ViewModel(){
     fun addActividad(){
         listActividad.add(Actividad(tipo,listEvento))
     }
-    fun addEvento( idEvento: Int){
-        listActividad[idEvento].eventoLista.add(id, nombre, detalle)
-    }
+    /*fun addEvento( idEvento: Int){
+        listActividad[idEvento].eventoLista.add(id, nombre, descripcion)
+    }*/
 
 }
 

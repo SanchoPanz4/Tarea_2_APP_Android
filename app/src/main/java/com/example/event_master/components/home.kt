@@ -56,8 +56,13 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                             modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Text(it.tipo)
-                            Text(it.descripcion)
+                            Text(it.nombre)
+                        }
+                        Column(
+                            modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ){
+
                         }
                     }
                 }
