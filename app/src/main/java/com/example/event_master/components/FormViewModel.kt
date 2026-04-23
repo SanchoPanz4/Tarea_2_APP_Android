@@ -10,18 +10,24 @@ class CategoriaViewMdole: ViewModel(){
     var nombre by mutableStateOf("")
     var descripcion by mutableStateOf("")
     // var color by mutableStateOf("")  Preguntar profesor como tomar color para las cards
-    var listEvento = mutableListOf<Actividad>(
-        Actividad("Musica","Concierto","Banda local"),
-        Actividad("Deporte","Partido Futbol","5pm, San Pedro de la paz"),
-        Actividad("Cultura","Feria del libro","Biblioteca UCSC, 20:30 horas")
+    var listEvento = mutableListOf<Evento>(
+
     )
-    fun addEvento(){
-        listEvento.add(Actividad(tipo,nombre,descripcion))
+    var listActividad = mutableListOf<Actividad>(
+        Actividad("Musica", listEvento)
+    )
+
+    fun addActividad(){
+        listActividad.add(Actividad(tipo,listEvento))
+    }
+    fun addEvento( idEvento: Int){
+        listActividad[idEvento].eventoLista.add(id, nombre, detalle)
     }
 
 }
 
-class Actividad(val tipo: String,val nombre: String,val descripcion: String)
+class Actividad(val tipo: String,val eventoLista: MutableList<Evento> = mutableListOf<Evento>())
+class Evento(val id: Int, val nombre: String, val detalle: String)
 
 
 // Consultar al profe viavilidad, Crear una clase Actividad que sea de tipo lista e id(automatica),

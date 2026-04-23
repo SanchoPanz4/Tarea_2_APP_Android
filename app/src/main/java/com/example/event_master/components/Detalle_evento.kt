@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 
 @Composable
-fun DetalleScreen(navController: NavHostController)
+fun DetalleScreen(navController: NavHostController, detalle: String)
 {
 
 }
