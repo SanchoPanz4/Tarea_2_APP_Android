@@ -49,10 +49,10 @@ fun GestionCategoriaScreen(formViewMdole: CategoriaViewMdole,navController: NavH
             )
             Spacer(modifier = Modifier.size(22.dp))
             Button(onClick = {
-                formViewMdole.addEvento()
+                formViewMdole.addActividad()
                 },
                 ) {
-                Text(stringResource(R.string.tipo_label))
+                Text(stringResource(R.string.a))
             }
             Button(onClick = {navController.navigate(Home)},
             ) {
