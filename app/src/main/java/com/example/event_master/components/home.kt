@@ -36,8 +36,10 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
             ) {
                 Button(
                     onClick = {navController.navigate(Gestion)}
+                ) {Text(stringResource(R.string.agregarActividad_label)) }
+                Button(
+                    onClick = {navController.navigate(Registro)}
                 ) {Text(stringResource(R.string.agregarEvento_label)) }
-
             }
         }
         )
@@ -56,13 +58,7 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                             modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Text(it.nombre)
-                        }
-                        Column(
-                            modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ){
-
+                            Text(it.detalle)
                         }
                     }
                 }

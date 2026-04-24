@@ -31,12 +31,7 @@ fun RegistroEventoScreen(formViewMdole: CategoriaViewMdole,navController: NavHos
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            TextField(
-                value = formViewMdole.tipo,
-                onValueChange = {formViewMdole.tipo = it},
-                label = { Text((stringResource(R.string.tipo_label))) },
-            )
-            Spacer(modifier = Modifier.size(22.dp))
+
 
             TextField(
                 value = formViewMdole.tipo,
@@ -56,20 +51,24 @@ fun RegistroEventoScreen(formViewMdole: CategoriaViewMdole,navController: NavHos
 
 
             TextField(
-                value = formViewMdole.descripcion,
-                onValueChange = {formViewMdole.descripcion = it},
+                value = formViewMdole.detalle,
+                onValueChange = {formViewMdole.detalle = it},
                 label = { Text((stringResource(R.string.descripcion_label))) },
                 isError = formViewMdole.tipo.isBlank() || formViewMdole.tipo.length <5
             )
             Spacer(modifier = Modifier.size(22.dp))
 
-            val num = 0
-            //val id_evento = while(listActivad[num])
-
-
+            for(element in formViewMdole.listActividad)
+            {
+                if(element.tipo == formViewMdole.tipo)
+                {
+                   formViewMdole.idEvento = formViewMdole.listActividad.indexOf(element)
+                }
+            }
+            formViewMdole.id = formViewMdole.listActividad[formViewMdole.idEvento].eventoLista.size
 
             Button(onClick = {
-                //formViewMdole.addEvento(idEvento = )
+                formViewMdole.addEvento()
             },
             ) {
                 Text(stringResource(R.string.agregarActividad_label))
