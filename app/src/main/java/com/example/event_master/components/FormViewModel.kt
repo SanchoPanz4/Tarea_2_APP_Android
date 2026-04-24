@@ -7,12 +7,16 @@ import androidx.lifecycle.ViewModel
 
 class CategoriaViewMdole: ViewModel(){
     var tipo by mutableStateOf("")
-    var nombre by mutableStateOf("")
-    var descripcion by mutableStateOf("")
-    // var color by mutableStateOf("")  Preguntar profesor como tomar color para las cards
-    var listEvento = mutableListOf<Evento>(
 
-    )
+    var listEvento = mutableListOf<Evento>()
+
+
+
+    var nombre by mutableStateOf("")
+    var detalle by mutableStateOf("")
+    var id = 0
+    var idEvento: Int = 0
+
     var listActividad = mutableListOf<Actividad>(
         Actividad("Musica", listEvento)
     )
@@ -20,8 +24,8 @@ class CategoriaViewMdole: ViewModel(){
     fun addActividad(){
         listActividad.add(Actividad(tipo,listEvento))
     }
-    fun addEvento( idEvento: Int){
-        listActividad[idEvento].eventoLista.add(id, nombre, detalle)
+    fun addEvento(){
+        listActividad[idEvento].eventoLista.add(Evento(id,nombre,detalle))
     }
 
 }

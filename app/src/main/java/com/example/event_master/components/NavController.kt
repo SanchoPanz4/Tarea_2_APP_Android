@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
 object Home
 
 @Serializable
-data class Detalle(val detalle: String)
+data class Detalle(val idEvento: Int)
 @Serializable
 object Gestion
 
@@ -32,7 +32,7 @@ fun Navigation() {
         composable<Detalle>
         {backStackEntry ->
             val args = backStackEntry.toRoute<Detalle>()
-            DetalleScreen(navController = navController, args.detalle)
+            DetalleScreen(navController = navController, args.idEvento)
         }
         composable<Gestion>
         {backStackEntry->
