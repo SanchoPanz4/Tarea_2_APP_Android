@@ -2,9 +2,12 @@ package com.example.event_master.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -34,12 +37,21 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
                 contentColor = MaterialTheme.colorScheme.primary
             ) {
-                Button(
-                    onClick = {navController.navigate(Gestion)}
-                ) {Text(stringResource(R.string.agregarActividad_label)) }
-                Button(
-                    onClick = {navController.navigate(Registro)}
-                ) {Text(stringResource(R.string.agregarEvento_label)) }
+                Row(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+
+                ) {
+                    Button(
+                        onClick = {navController.navigate(Gestion)}
+                    ) {Text(stringResource(R.string.agregarActividad_label)) }
+                    Spacer(modifier = Modifier.size(22.dp))
+                    Button(
+                        onClick = {navController.navigate(Registro)}
+                    ) {Text(stringResource(R.string.agregarEvento_label)) }
+                }
+
             }
         }
         )
