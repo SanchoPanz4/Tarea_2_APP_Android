@@ -46,6 +46,7 @@ fun DetalleScreen(navController: NavHostController,formViewMdole: CategoriaViewM
 
             Button(onClick = {navController.navigate(Home)},
             ) {
+
                 Text(stringResource(R.string.app_name))
             }
 
