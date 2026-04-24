@@ -51,14 +51,30 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                 horizontalArrangement = Arrangement.spacedBy(10.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                items(formViewModel.listEvento){
+                items(formViewModel.listActividad){
                     Card(
                     ){
                         Column(
-                            modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(vertical = 20.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Text(it.detalle)
+                            Text(it.tipo)
+                            for(element in it.eventoLista) {
+                                Card(
+                                    onClick = {navController.navigate(Detalle(element.id), )}
+                                ) {
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(vertical = 20.dp),
+                                        horizontalAlignment = Alignment.CenterHorizontally
+                                    ) {
+                                        Text(element.nombre)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
