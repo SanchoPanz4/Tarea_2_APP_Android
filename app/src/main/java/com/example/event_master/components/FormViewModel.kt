@@ -10,8 +10,6 @@ class CategoriaViewMdole: ViewModel(){
 
     var listEvento = mutableListOf<Evento>()
 
-
-
     var nombre by mutableStateOf("")
     var detalle by mutableStateOf("")
     var id = 0
@@ -22,7 +20,8 @@ class CategoriaViewMdole: ViewModel(){
     )
 
     fun addActividad(){
-        listActividad.add(Actividad(tipo,listEvento))
+        val auxLE = mutableListOf<Evento>()
+        listActividad.add(Actividad(tipo,auxLE))
     }
     fun addEvento(){
         listActividad[idEvento].eventoLista.add(Evento(id,nombre,detalle))

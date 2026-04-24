@@ -63,7 +63,7 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                             Text(it.tipo)
                             for(element in it.eventoLista) {
                                 Card(
-                                    onClick = {navController.navigate(Detalle(element.id), )}
+                                    onClick = {navController.navigate(Detalle(element.id,it.tipo), )}
                                 ) {
                                     Column(
                                         modifier = Modifier
