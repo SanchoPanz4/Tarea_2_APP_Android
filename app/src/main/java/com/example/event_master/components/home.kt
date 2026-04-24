@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -44,24 +45,7 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
                 contentColor = MaterialTheme.colorScheme.primary
             ) {
-                Button(
-                    onClick = {navController.navigate(Gestion)}
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.AddCircle,
-                        contentDescription = "icono",
-                        tint = Color.White
-                    )
-                    Text( stringResource(R.string.agregarActividad_label)) }
-                Button(
-                    onClick = {navController.navigate(Registro)}
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.DateRange,
-                        contentDescription = "icono",
-                        tint = Color.White
-                    )
-                    Text(stringResource(R.string.agregarEvento_label)) }
+
                 Row(
                     modifier = Modifier.fillMaxSize(),
                     horizontalArrangement = Arrangement.Center,
@@ -70,11 +54,23 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                 ) {
                     Button(
                         onClick = {navController.navigate(Gestion)}
-                    ) {Text(stringResource(R.string.agregarActividad_label)) }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.AddCircle,
+                            contentDescription = "icono",
+                            tint = Color.White
+                        )
+                        Text(stringResource(R.string.agregarActividad_label)) }
                     Spacer(modifier = Modifier.size(22.dp))
                     Button(
                         onClick = {navController.navigate(Registro)}
-                    ) {Text(stringResource(R.string.agregarEvento_label)) }
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.DateRange,
+                            contentDescription = "icono",
+                            tint = Color.White
+                        )
+                        Text(stringResource(R.string.agregarEvento_label)) }
                 }
 
             }
@@ -97,7 +93,21 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                                 .padding(vertical = 20.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Text(it.tipo)
+
+                            Row(
+                                modifier = Modifier.fillMaxSize(),
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+                                ){
+                                Icon(
+                                    imageVector = Icons.Default.Notifications,
+                                    contentDescription = "icono",
+                                    tint = Color.White
+                                )
+                                Text(it.tipo)
+                            }
+
+
                             for(element in it.eventoLista) {
                                 Card(
                                     onClick = {navController.navigate(Detalle(element.id,it.tipo), )}
