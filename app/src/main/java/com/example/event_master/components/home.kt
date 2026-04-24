@@ -2,9 +2,12 @@ package com.example.event_master.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -59,6 +62,21 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                         tint = Color.White
                     )
                     Text(stringResource(R.string.agregarEvento_label)) }
+                Row(
+                    modifier = Modifier.fillMaxSize(),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+
+                ) {
+                    Button(
+                        onClick = {navController.navigate(Gestion)}
+                    ) {Text(stringResource(R.string.agregarActividad_label)) }
+                    Spacer(modifier = Modifier.size(22.dp))
+                    Button(
+                        onClick = {navController.navigate(Registro)}
+                    ) {Text(stringResource(R.string.agregarEvento_label)) }
+                }
+
             }
         }
         )
@@ -79,11 +97,6 @@ fun HomeScreen(formViewModel: CategoriaViewMdole,navController: NavHostControlle
                                 .padding(vertical = 20.dp),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Icon(
-                                imageVector = Icons.Default.Info,
-                                contentDescription = "icono",
-                                tint = Color.Blue
-                            )
                             Text(it.tipo)
                             for(element in it.eventoLista) {
                                 Card(
